@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Twitter Feed Search</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body ng-app='twitterFeedApp' ng-controller='mainController'>
+    <div ng-controller='feedController' ng-init='init()'>
+        <!-- <button class='btn btn-default' ng-click='getfeed()'>Get Feed</button> -->
+        <div class="app-content">
+            <div class="container-fluid feed_container">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class=''>
+                            <div class='tweets'>
+                                <ul class='tweet-group list-group'>
+                                    <li class='list-group-item' ng-repeat='tweet in tweets'>
+                                        <div class="tweet">
+                                            <div class="content">
+                                                <div class="stream-item-header">
+                                                    <a href="#">
+                                                        <img class="avatar" ng-src={{tweet.user.profile_image_url}} alt="">
+                                                        <strong class="fullname">{{ tweet.user.name}}</strong>
+                                                        <span>‏</span><span class="username"><s>@</s><b>{{ tweet.user.screen_name}}</b></span>
+                                                    </a>
+                                                </div>
+                                                <p class="TweetTextSize">{{tweet.text}}</p>
+                                            </div>
+                                        </div>
+                                        <!-- <div class=''>
+                                            <div class=''>
+                                                <span class=''>
+                                                <span class='tweet ng-cloak'>{{tweet.text}}</span>
+                                                </span>
+                                            </div>
+                                        </div> -->
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src='./js/jquery.min.js'></script>
+    <script src='./js/bootstrap.min.js'></script>
+    <script src='./js/angular.min.js'></script>
+    <script src="core.js"></script>
+</body>
+
+</html>

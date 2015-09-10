@@ -1,0 +1,32 @@
+{
+  "name": "twitter-feed-angular",
+  "version": "1.0.0",
+  "description": "Twitter feed search app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Phanindra48/twitter-feed-angular.git"
+  },
+  "keywords": [
+    "twitter",
+    "feed",
+    "search"
+  ],
+  "author": "Phanindra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Phanindra48/twitter-feed-angular/issues"
+  },
+  "homepage": "https://github.com/Phanindra48/twitter-feed-angular",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "method-override": "^2.3.5",
+    "morgan": "^1.6.1",
+    "twitter": "^1.2.5"
+  }
+}
