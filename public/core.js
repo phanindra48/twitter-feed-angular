@@ -70,6 +70,19 @@ twitterFeedApp.controller('feedController', ['$scope', '$http', function($scope,
             });
     };
 
+    $scope.search = function(query){
+        var params = {
+            q : query
+        }
+        $http.get('/api/feed/' + query)
+            .success(function(data) {
+                console.log(data);
+                $scope.tweets = data.statuses;
+            })
+            .error(function(err) {
+                console.log('Error: ' + err);
+            });
+    };
 }]);
 
 twitterFeedApp.directive('keypress', function() {

@@ -17,13 +17,14 @@
                 <div class="row">
                     <div class='col-xs-4'></div>
                     <div class="col-xs-4">
-                        <div class="form-group">
-                            <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
-                            <div class="input-group">
-                                <div class="input-group-addon">$</div>
-                                <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                        <form class="">
+                            <div class="form-group">
+                                <div class="input-group" style='padding-left: 15px;'>
+                                    <div class="input-group-addon"><span class='glyphicon glyphicon-search'></span></div>
+                                    <input type="text" class="form-control" ng-model='query' placeholder="Search" keypress='search(query)'>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                         <div class=''>
                             <div class='tweets'>
                                 <ul class='tweet-group list-group'>

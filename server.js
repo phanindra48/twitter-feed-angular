@@ -52,13 +52,7 @@ app.post('/api/feed', function(req, res) {
         accuracy: '10000'
     };
     console.log(params);
-    /*
-    twit.get('https://api.twitter.com/1.1/geo/search.json', params, function(error, tweets, response) {
-        if (error)
-            res.send(error)
-        res.json(tweets); // return all tweets in JSON format
-    });
-    */
+
     twit.get('search/tweets', {
         q: '',
         geocode: req.body.latitude + ',' + req.body.longitude + ',10km'
@@ -71,9 +65,18 @@ app.post('/api/feed', function(req, res) {
 
 });
 
-//search twitter feed
-app.get('/api/feed/:query', function() {
 
+
+//search twitter feed
+app.get('/api/feed/:query', function(req,res) {
+    twit.get('search/tweets', {
+        q: req.params.query,
+    }, function(error, tweets, response) {
+        //console.log(tweets);
+        if (error)
+            res.send(error)
+        res.json(tweets); // return all tweets in JSON format
+    });
 });
 
 // listen (start app with node server.js) ======================================
