@@ -68,9 +68,9 @@ app.post('/api/feed', function(req, res) {
 
 
 //search twitter feed
-app.get('/api/feed/:query', function(req,res) {
+app.get('/api/search/', function(req,res) {
     twit.get('search/tweets', {
-        q: req.params.query,
+        q: req.param('query'),
     }, function(error, tweets, response) {
         //console.log(tweets);
         if (error)

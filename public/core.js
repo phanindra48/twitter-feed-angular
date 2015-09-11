@@ -70,18 +70,29 @@ twitterFeedApp.controller('feedController', ['$scope', '$http', function($scope,
             });
     };
 
-    $scope.search = function(query){
-        var params = {
-            q : query
+    $scope.search = function(query) {
+        if (query == "")
+            $scope.getfeed();
+        else {
+            var params = {
+                q: query
+            };
+            
+            $http({
+                    url: '/api/search/',
+                    method: "GET",
+                    params: {
+                        query: query
+                    }
+                })
+                .success(function(data) {
+                    console.log(data);
+                    $scope.tweets = data.statuses;
+                })
+                .error(function(err) {
+                    console.log('Error: ' + err);
+                });
         }
-        $http.get('/api/feed/' + query)
-            .success(function(data) {
-                console.log(data);
-                $scope.tweets = data.statuses;
-            })
-            .error(function(err) {
-                console.log('Error: ' + err);
-            });
     };
 }]);
 
